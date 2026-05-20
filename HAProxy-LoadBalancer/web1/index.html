@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Server 1</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.bg{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at center,#ff000055 0%,transparent 60%),
+    linear-gradient(120deg,#000000,#050505,#0d0d0d);
+}
+
+.grid{
+    position:absolute;
+    width:200%;
+    height:200%;
+    background-image:
+    linear-gradient(rgba(255,0,0,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,0,0.08) 1px, transparent 1px);
+    background-size:60px 60px;
+    transform:rotateX(75deg);
+    animation:gridMove 10s linear infinite;
+}
+
+@keyframes gridMove{
+    from{
+        transform:rotateX(75deg) translateY(0);
+    }
+    to{
+        transform:rotateX(75deg) translateY(60px);
+    }
+}
+
+.container{
+    position:relative;
+    text-align:center;
+    z-index:2;
+}
+
+h1{
+    font-size:90px;
+    color:#ff003c;
+    text-shadow:
+    0 0 10px #ff003c,
+    0 0 30px #ff003c,
+    0 0 60px #ff003c;
+    animation:pulse 2s infinite alternate;
+}
+
+@keyframes pulse{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.05);
+    }
+}
+
+p{
+    margin-top:20px;
+    font-size:22px;
+    color:#d1d1d1;
+    letter-spacing:3px;
+}
+
+.server-box{
+    margin-top:40px;
+    padding:20px 60px;
+    border:2px solid #ff003c;
+    display:inline-block;
+    border-radius:20px;
+    box-shadow:
+    0 0 20px #ff003c,
+    inset 0 0 20px #ff003c;
+    font-size:28px;
+    letter-spacing:4px;
+    backdrop-filter:blur(10px);
+}
+
+.scanline{
+    position:absolute;
+    width:100%;
+    height:5px;
+    background:rgba(255,255,255,0.08);
+    animation:scan 6s linear infinite;
+}
+
+@keyframes scan{
+    from{
+        top:-10%;
+    }
+    to{
+        top:110%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="grid"></div>
+<div class="scanline"></div>
+
+<div class="container">
+    <h1>SERVER 01</h1>
+    <p>HAProxy Load Balancer Infrastructure</p>
+
+    <div class="server-box">
+        ACTIVE NODE
+    </div>
+</div>
+
+</body>
+</html>
